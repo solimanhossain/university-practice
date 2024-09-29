@@ -1,0 +1,17 @@
+    1  pip install numpy
+    2  pip install matplot
+    3  ls
+    4  python3 activity0.py
+    5  touch activity1.py
+    6  vim  activity1.py
+    7  python3 activity1.py
+    8  touch  activity2.py
+    9  vim activity2.py
+   10  python3 activity2.py
+   11  touch activity3.py
+   12  vim  activity3.py
+   13  python3 activity3.py
+   14  touch activity4.py
+   15  vim  activity4.py
+   16  python3 activity4.py
+   17  history > hist.txt
