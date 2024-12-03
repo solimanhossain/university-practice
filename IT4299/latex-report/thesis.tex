@@ -1,0 +1,170 @@
+\documentclass[reqno,12pt,oneside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{extra/rac} 
+\usepackage[intlimits]{amsmath}
+\usepackage{amsxtra}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+\usepackage{rotating}
+\usepackage{color}
+\usepackage{xspace}
+\usepackage{mdframed}
+\usepackage{epsfig}
+\usepackage{subfigure} 
+\usepackage{multirow}
+\usepackage{verbatim}
+\usepackage[numbers]{natbib}     
+\usepackage{acronym}
+\usepackage{booktabs}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{algpseudocode}
+\usepackage{ifthen}
+\usepackage[intoc]{nomencl}
+\usepackage{tikz}
+\usepackage{url}
+\usepackage[breaklinks]{hyperref}
+\usepackage{hyperref}
+\usepackage{algorithm,algpseudocode}
+\usepackage[nottoc,notlof,notlot]{tocbibind}
+\usepackage{algorithm}
+\DeclareUnicodeCharacter{03B2}{\ensuremath{\beta}}
+\DeclareUnicodeCharacter{2212}{-}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\usetikzlibrary{shapes.geometric, arrows}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\renewcommand\bibname{References}
+\makenomenclature
+\onehalfspacing 
+\newcommand{\sun}{\ensuremath{\odot}}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{assumption}[theorem]{Assumption}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{introduction}[theorem]{Introduction}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{theorem}{chapter}  
+\makeatletter
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+\hbox{}
+\thispagestyle{empty}
+\newpage
+\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
+\newcommand{\todo}[1]{\vspace{5 mm}\par \noindent
+\marginpar{\textsc{To Do}}
+\framebox{\begin{minipage}[c]{0.95 \textwidth}
+\tt\begin{center} #1 \end{center}\end{minipage}}\vspace{5mm}\par}
+
+
+
+\begin{document}
+
+% Title page as required by Rackham dissertation guidelines
+\titlepage{Stock Market Analysis Using Twitter Sentiment}{\\Md. Soliman Hossain (172485)\\Munira Ferdous (172514)\\Adiba Masud (172472)}{Bachelor of Science in Information Technolog}
+{Information Technology}{March, 2022}{Manan Binth Taj Noor, \\Assistant Professor}
+
+% Begin the front matter as required by Rackham dissertation guidelines
+\initializefrontsections
+\makeatletter
+\if@twoside \setcounter{page}{4} \else \setcounter{page}{1} \fi
+\makeatother
+
+%Optional declaration page
+\startdeclarationpage
+\input{intro/declaration}
+\label{declaration}
+
+%Optional Certificate page
+\startcertificatepage
+\input{intro/certificate}
+\label{Certificate}
+
+% % Optional Acknowledgements page
+% \startacknowledgementspage
+% \input{introduction/Acknowledgements}
+% \label{Acknowledgements}
+
+%Optional Abstract page
+\startabstractpage
+\input{intro/abstract}
+\label{Abstract}
+
+% List of Abbreviation
+\listofabbreviations
+\section*{
+\begin{center}
+  LIST OF ABBREVIATIONS
+\end{center}
+}
+\begin{tabular}{p{2.5cm}p{10cm}}
+
+\textbf{API}  & Application Programming Interface\\
+\textbf{LR}  & Linear Regression\\
+\textbf{LSTM}  & Long Short-term Memory \\
+\textbf{DJIA}  & Dow Jones Industrial Average\\
+\textbf{NLP}  & Natural Language Processing\\
+\textbf{NLTK}  & Natural Language Toolkit\\
+\textbf{SOFNN}  & Self-Organizing Fuzzy Neural Networks \\
+\end{tabular}
+
+% List of Notatoin
+\listofnotations
+\section*{
+\begin{center}
+ LIST OF NOTATIONS
+\end{center}
+}
+
+\begin{tabular}{p{2.5cm}p{10cm}}
+$\beta$   & Define Beta\\
+$\epsilon$  & Define Epsilon\\
+$\omega$& Define Omega\\
+$\theta$   & Define Theta\\
+\end{tabular}
+
+
+\listoffigures   % Required if there is more than one figure
+\tableofcontents     % Required
+\printnomenclature[1.5cm]
+
+\startthechapters
+
+ \label{chap0:Introduction}
+ \input{chapters/chapter1}
+
+ \label{chap1:Literature}
+ \input{chapters/chapter2}
+
+ \label{chap2:SystemModel}
+ \input{chapters/chapter3}
+ 
+ \label{chap3:Result and Analysis}
+ \input{chapters/chapter4}
+
+ 
+ \label{chap3:Conclusion}
+ \input{chapters/chapter5}
+
+\label{chap4:Reference}
+\bibliographystyle{ieeetr}
+% \renewcommand{\bibname}{Bibliography}
+\bibliography{ref.bib}
+
+\end{document}
