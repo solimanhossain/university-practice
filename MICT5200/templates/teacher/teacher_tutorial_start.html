@@ -1,0 +1,36 @@
+{% extends 'teacher/teacherbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+{%load static%}
+
+
+
+<br><br>
+<div class="container">
+  
+      <h2 style="text-align:center;">Add Written Exam Question</h2>
+      <div class="form-group">
+      <form method="POST" autocomplete="off" enctype="multipart/form-data" style="margin:100px;margin-top: 0px;">
+        {% csrf_token %}
+          <label for="question">Exam Name</label>
+        {% render_field tutorialform.courseID|attr:'required:true' %}
+          <br>
+  
+          <label for="question">Question</label>
+          {% render_field tutorialform.question|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Example: What is a Software Development Life Cycle?" %}
+            <br>
+        <label for="question">Marks</label>
+        {% render_field tutorialform.marks|attr:'required:true' class="form-control form-control-sm rounded-0" placeholder="Example: 5" %}
+          <br>
+        <label for="answer">Lecture PDF</label><br>
+        {{ tutorialform.pdf_file }}
+          <br>
+          <br><br>
+  
+      <button type="submit" class="btn btn-success">Save Question</button>
+      </form>
+      
+    </div>
+</div>
+<br><br><br><br>
+{% endblock content %}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% load static %}
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+      
+
+    .logout_btn {
+      padding: 5px;
+      background: #ef5350;
+      text-decoration: none;
+      float: right;
+      margin-top: -42px;
+      margin-right: 40px;
+      border-radius: 2px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      transition: 0.5s;
+
+    }
+
+    .logout_btn:hover {
+      background:#ca4745;
+    }
+
+
+        form{
+           margin: 50px; 
+          
+        }
+
+    </style>
+  </head>
+  <body>
+    
+    
+    <header class="shadow;" style="background-color: #136332;">
+      <a href="admin-student"><h3 style="color: #ffffff; left: 5px;">&nbsp REGISTRAR</h3></a>
+      <div class="right_area">
+        <a href="/logout" class="logout_btn" style="border-radius:0px;"> Logout</a>
+      </div>
+    </header>
+ 
+
+
+<br><br><br>
+<div class="container">
+  <h3 style="text-align: center;">Student Signup Form</h3>
+<form method="POST" autocomplete="off" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-row">
+        <div class="form-group col-md-10">
+          <label for="first_name">First Name</label>
+          {% render_field userForm.first_name|attr:'required:true'  class="form-control form-control-sm" placeholder="First Name" %}
+        </div>
+        <div class="form-group col-md-10">
+          <label for="last_name">Last Name</label>
+          {% render_field userForm.last_name|attr:'required:true'  class="form-control form-control-sm" placeholder="Last Name" %}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="mobile">Contact</label>
+          {% render_field studentForm.mobile|attr:'required:true'  class="form-control form-control-sm" placeholder="Contact Number" %}
+        </div>
+        <div class="form-group col-md-4">
+          <label for="profile_pic">Profile Picture</label>
+          {% render_field studentForm.profile_pic|attr:'required:true' class="form-control form-control-sm" placeholder="" %}
+        </div>
+        <div class="form-group col-md-10">
+          <label for="address">Address</label>
+          {% render_field studentForm.address|attr:'required:true'  class="form-control form-control-sm" placeholder="Address" %}
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="username">Registration Number</label>
+          {% render_field userForm.username|attr:'required:true'   class="form-control form-control-sm" placeholder="Registration Number" %}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Password</label>
+          {% render_field userForm.password|attr:'required:true'  class="form-control form-control-sm" placeholder="Password" %}
+        </div>
+      </div>
+
+      <br>
+    <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+  </form>
+</div>
+
+
+<br><br>
+{% include "exam/footer.html" %}
+  </body>
+</html>

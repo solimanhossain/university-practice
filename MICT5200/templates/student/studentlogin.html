@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+        .login {
+        min-height: 100vh;
+        }
+
+        .bg-image {
+        background-image: url("{% static "cover/student-login.jpg" %}");
+        background-size: cover;
+        background-position: center;
+        }
+
+        .login-heading {
+        font-weight: 300;
+        }
+
+        .btn-login {
+        font-size: 0.9rem;
+        letter-spacing: 0.05rem;
+        padding: 0.75rem 1rem;
+        }
+    </style>
+  </head>
+  <body>
+    {% include "exam/navbar.html" %}
+
+
+<div class="container-fluid ps-md-0">
+    <div class="row g-0">
+      <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+      <div class="col-md-8 col-lg-6">
+        <div class="login d-flex align-items-center py-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-5 col-lg-5 mx-auto">
+                  <img src="{% static "image/students.png" %}" width="75"/>
+    
+                <h3 ><b>Login as a Student!</b> </h3><br>
+                <form class="box" method="post" > {% csrf_token %}
+                  <div class="form-floating mb-3">
+                    {% render_field form.username class="form-control" autocomplete="off" placeholder="Registration Number" %}
+                  </div>
+                  <div class="form-floating mb-3">
+                    {% render_field form.password class="form-control" autocomplete="off" placeholder="Valid Password" %}
+                  </div>
+                  
+                  <div class="d-grid">
+                    <input type="submit" class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"  name="" value="Login">
+                  </div>
+
+                  <br>
+                  <div>
+                    <a href="/contactus">Want to admit as student?<br>Request here.</a>
+                  </div>
+                  <a href="#!" class="small text-muted">Terms of use.</a>
+              <a href="#!" class="small text-muted">Privacy policy</a>
+                </form>
+  
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% include "exam/footer.html" %}
+  </body>
+</html>
